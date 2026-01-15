@@ -1,0 +1,13 @@
+{
+  "name": "adjacent-bomb-count",
+  "version": "1.0.0",
+  "description": "Grid adjacent bomb counting problem for intern interview",
+  "main": "solution.js",
+  "scripts": {
+    "test": "node test.js",
+    "solution": "node solution.js"
+  },
+  "keywords": ["interview", "grid", "algorithm", "minesweeper"],
+  "author": "",
+  "license": "ISC"
+}
