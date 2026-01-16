@@ -1,5 +1,7 @@
 import React from "react";
 import "./Chessboard.css";
+import Cell from "./Cell";
+import {useState} from "react"
 
 /**
  * PROBLEM: Interactive Chessboard with Performance Optimization
@@ -56,12 +58,98 @@ import "./Chessboard.css";
 
 const Chessboard = () => {
   // Your implementation here
+  const [isHighlighted, setHighlighted] = useState(false);
+
+  const cells = []; 
+  for (let row = 0; row < 8; row++) { 
+    for (let col = 0; col < 8; col++) { 
+      cells.push( 
+      <Cell key={`${row}+${col}`} 
+      row={row} 
+      col={col} 
+      isHighlighted = {isHighlighted}
+      onclick={(e)=>handleClick(e)} /> ); 
+    } 
+  }
+
+  function handleClick(e){
+    e.target.classList.add("highlighted")
+    // setHighlighted(isHighlighted => !isHighlighted);
+  }
+
 
   return (
     <div className="chessboard-container">
       <h2>Interactive Chessboard</h2>
       <div className="chessboard" data-testid="chessboard">
         {/* Your chessboard implementation */}
+
+        {cells}
+
+        {/* <Cell onClick={clickHandler} color="white"/>
+        <Cell color="cell grey"/>
+        <Cell/>
+        <Cell color="cell grey"/>
+        <Cell/>
+        <Cell color="cell grey"/>
+        <Cell/>
+        <Cell color="cell grey"/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/>
+        <Cell/> */}
       </div>
     </div>
   );
